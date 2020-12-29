@@ -15,24 +15,18 @@ config = {
 
 
 
-
-
 # initialisatiing pyrebase
 firebase = pyrebase.initialize_app(config)
 
 # initialisatiing Database
 db = firebase.database()
 
-# selecting the column in the database
-check = db.child("users")
 
-try:
-    data = {"name": "Stan"}
-    db.child("users").push(data)
+# push data
+data = {"name": "johnd", "age": 104}
 
-    print('DB WELL WRITTEN')
+db.push(data)  # push to db with auto generated key by firebase
 
-except:
-    print('ACCESS DENIED')
 
-# print(check)
+# generate your own key
+db.child('example').set(data)
