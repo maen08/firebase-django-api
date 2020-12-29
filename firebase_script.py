@@ -28,5 +28,9 @@ data = {"name": "johnd", "age": 104}
 db.push(data)  # push to db with auto generated key by firebase
 
 
-# generate your own key
+# generate your own key     
 db.child('example').set(data)
+
+eg = db.child('example').get()
+for value in eg.each():
+  print(value.val())
